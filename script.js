@@ -2,10 +2,38 @@ const imageinput = document.getElementById('imageinput');
 const fileinfo = document.getElementById('fileinfo');
 const preview = document.getElementById('preview');
 
+const qualitySlider= document.getElementById('qualitySlider');
+const qualityValue= document.getElementById('qualityValue');
+
+const compressBtn = document.getElementById('compressBtn');
+const compressedPreview = document.getElementById('compressedPreview');
+const compressedInfo = document.getElementById('compressedInfo');
 
 imageinput.addEventListener('change', function () {
     const file = imageinput.files[0];
     fileinfo.innerText = "selected: " + file.name + " (" + Math.round(file.size / 1024) + "KB";
     preview.src = URL.createObjectURL(file);
     preview.style.display = "block";
+});
+    qualitySlider.addEventListener('input', function () {
+    qualityValue.innerText = qualitySlider.value;
+});
+compressBtn.addEventListener('click', function () {
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    
+    canvas.width = preview.naturalWidth;
+    canvas.height = preview.naturalHeight;
+    ctx.drawImage(preview, 0, 0);
+
+    const quality = qualitySlider.value /100;
+
+    canvas.toBlob(function (blob) {
+        compressedPreview.src = URL.createObjectURL(blob);
+        compressedPreview.style.display = 'block';
+
+    const newSizeKB = Math.round(blob.size / 1024);
+    
+    compressedInfo.innerText = "compressed Size: " + newSizeKB + " KB (" + qualitySlider.value + "% Quality)";
+    }, 'image/jpeg', quality);
 });

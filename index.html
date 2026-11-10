@@ -6,9 +6,17 @@
     <body>
         <h1>Image Comperssor</h1>
         <p>A Website That Compresses Your images Locally</p>
-        <input type="file" id="imageinput" accept="images/*">
+        <input type="file" id="imageinput" accept="image/*">
         <p id="fileinfo">No Image Selected Yet.</p>
-        <img id="preview" style="max-width: 300px; display; none;">
+        <img id="preview" style="max-width: 300px; display: none;">
+        <div style="margin: 15px 0;">
+            <label>Quality: <span id="qualityValue">50</span>%</label>
+            <br>
+            <input type="range" id="qualitySlider" min="10" max="90" value="50">
+        </div>
+        <button id="compressBtn">Compress Image</button>
+        <p id="compressedInfo"></p>
+        <img id="compressedPreview" style="max-width: 300px; display: none;">
         <script src="script.js"></script>
     </body>
 </html>
