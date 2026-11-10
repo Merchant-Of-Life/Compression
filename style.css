@@ -1,7 +1,44 @@
-p{
-    width: 100px;
-    height: 50px;
-    padding: 20px;
-    border: 1px solid;
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
+body {
+    font-family: Arial, sans-serif;
+    background-color: #FFF9EB;
+    color: #9fb2ac;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #1e293b;
+}
+
+button, #downloadBtn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #5D0D18;
+    color: #ffff;
+    text-decoration: none;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    width: fit-content;
+}
+
+img {
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
