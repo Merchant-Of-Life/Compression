@@ -9,6 +9,8 @@ const compressBtn = document.getElementById('compressBtn');
 const compressedPreview = document.getElementById('compressedPreview');
 const compressedInfo = document.getElementById('compressedInfo');
 
+const downloadBtn = document.getElementById('downloadBtn');
+
 imageinput.addEventListener('change', function () {
     const file = imageinput.files[0];
     fileinfo.innerText = "selected: " + file.name + " (" + Math.round(file.size / 1024) + "KB";
@@ -29,11 +31,15 @@ compressBtn.addEventListener('click', function () {
     const quality = qualitySlider.value /100;
 
     canvas.toBlob(function (blob) {
-        compressedPreview.src = URL.createObjectURL(blob);
+        const compressedUrl = URL.createObjectURL(blob);
+        compressedPreview.src = compressedUrl;
         compressedPreview.style.display = 'block';
 
     const newSizeKB = Math.round(blob.size / 1024);
     
     compressedInfo.innerText = "compressed Size: " + newSizeKB + " KB (" + qualitySlider.value + "% Quality)";
+    downloadBtn.href = compressedUrl;
+    downloadBtn.download = "compressed_" + imageinput.files[0].name.replace(/\.[^/.]+$/, "") + ".jpg";
+    downloadBtn.style.display = 'inline-block';
     }, 'image/jpeg', quality);
 });
