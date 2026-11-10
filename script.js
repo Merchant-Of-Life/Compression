@@ -11,6 +11,8 @@ const compressedInfo = document.getElementById('compressedInfo');
 
 const downloadBtn = document.getElementById('downloadBtn');
 
+const dropzone = document.getElementById('dropzone');
+
 imageinput.addEventListener('change', function () {
     const file = imageinput.files[0];
     fileinfo.innerText = "selected: " + file.name + " (" + Math.round(file.size / 1024) + "KB";
@@ -42,4 +44,27 @@ compressBtn.addEventListener('click', function () {
     downloadBtn.download = "compressed_" + imageinput.files[0].name.replace(/\.[^/.]+$/, "") + ".jpg";
     downloadBtn.style.display = 'inline-block';
     }, 'image/jpeg', quality);
+});
+
+['dragenter', 'dragover'].forEach(eventName => {
+    dropzone.addEventListener(eventName, (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        dropzone.style.borderColor = '#72091c';
+    });
+});
+
+['dragleave', 'drop'].forEach(eventName => {
+    dropzone.addEventListener(eventName, function (e) {
+        e.preventDefault();
+        dropzone.style.borderColor = '#b08968';
+    });
+});
+
+dropzone.addEventListener('drop', function (e) {
+    const droppedFiles = e.dataTransfer.files;
+    if (droppedFiles.length > 0) {
+        imageinput.files = droppedFiles;
+        imageinput.dispatchEvent(new Event('change'));
+    }
 });
