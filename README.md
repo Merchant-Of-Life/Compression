@@ -1,4 +1,4 @@
-**IMAGE COMPRESSOR!!!**
+##IMAGE COMPRESSOR!!!##
 
 just drop an image in, pick your quality slider, and hit compress. there's also a split-view slider so you can compare the before-and-after quality before downloading!
 
@@ -16,7 +16,7 @@ this project was made with plain html, css, and vanilla javascript using the can
 heres how to run the project :)
 
 Clone the source code to your device
-git clone https://www.google.com/search?q=https://github.com/Merchant-Of-Life/Compression.git
+git clone https://github.com/Merchant-Of-Life/Compression/
 
 Open the project
 double click index.html to open it directly in your browser!
