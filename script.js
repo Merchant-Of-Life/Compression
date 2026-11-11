@@ -13,6 +13,11 @@ const downloadBtn = document.getElementById('downloadBtn');
 
 const dropzone = document.getElementById('dropzone');
 
+const compareSlider = document.getElementById('compareSlider');
+const compressedImg = document.getElementById('compressedPreview');
+const divider = document.getElementById('divider');
+
+
 imageinput.addEventListener('change', function () {
     const file = imageinput.files[0];
     fileinfo.innerText = "selected: " + file.name + " (" + Math.round(file.size / 1024) + "KB";
@@ -67,4 +72,10 @@ dropzone.addEventListener('drop', function (e) {
         imageinput.files = droppedFiles;
         imageinput.dispatchEvent(new Event('change'));
     }
+});
+
+compareSlider.addEventListener("input", function () {
+    const val = compareSlider.value
+    compressedImg.style.clipPath = `polygon(${val}% 0, 100% 0, 100% 100%, ${val}% 100%)`;
+    divider.style.left = val + "%";
 });

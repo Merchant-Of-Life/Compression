@@ -29,20 +29,28 @@
             <button id="compressBtn">Compress Image</button>
         </div>
         
-        <div class="comparison-container">
-            <div class="preview-card">
-                <h3>Uncompressed</h3>
+        <div class="preview-card">
+            <div class="info-row">
                 <p id="fileinfo">No Image Selected Yet.</p>
-                <img id="preview" style="display: none;" alt="Original preview">
-            </div>
-
-            <div class="preview-card">
-                <h3>Compressed</h3>
                 <p id="compressedInfo">Waiting to compress...</p>
-                <img id="compressedPreview" style="display: none;" alt="Compressed preview">
-                <a id="downloadBtn" style="display: none;">Download Image</a>
             </div>
         </div>
+
+        <div class="compare-box">
+           <img id="preview" style="display: none;" alt="Original preview">
+           <img id="compressedPreview" style="display: none;" alt="Compressed preview">
+           <div class="divider" id="divider"></div>
+        </div>
+
+        <div class="slider-group">
+            <div class="slider-labels">
+                <span>Original</span>
+                <span>Compressed</span>
+            </div>
+            <input type="range" id="compareSlider" min="0" max="100" value="50">
+        </div>
+         
+        <a id="downloadBtn" style="display: none;">Download Image</a>
     </main>
 
     <script src="script.js"></script>
