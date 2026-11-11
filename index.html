@@ -1,27 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Compressor</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Compressor</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <main class="container">
-        <h1>Image Compressor</h1>
-        <p>A Website That Compresses Your images Locally</p>
 
-        <div class="comparison-container">
-            <div class="preview-card">
-              <h3>Uncompressed</h3>
-              <p id="fileinfo">No Image Selected Yet.</p>
-              <img id="preview" style="display: none;">
-          </div>
-        <div class="preview-card">
-              <h3>Compressed</h3>
-              <p id="compressedInfo">Waiting to compress...</p>
-              <img id="compressedPreview" style="display: none;">
-              <a id="downloadBtn" style="display: none;">Download Compressed Image</a>
-            </div>
-        </div>
+    <main class="container">
+        <header class="header">
+            <h1>Image Compressor</h1>
+            <p class="subtitle">A Website That Compresses Your images Locally</p>
+        </header>
 
         <label for="imageinput" class="dropzone" id="dropzone">
             <p>Drag & Drop your image here or click to browse</p>
@@ -29,14 +20,31 @@
             <input type="file" id="imageinput" accept="image/*">
         </label>
 
-        <div style="margin: 15px 0;">
-            <label>Quality: <span id="qualityValue">50</span>%</label>
-            <br>
-            <input type="range" id="qualitySlider" min="10" max="90" value="50">
-        </div>
 
-        <button id="compressBtn">Compress Image</button>
+        <div class="controls-card">
+            <div class="slide-group">
+               <label for="qualitySlider">Quality: <span id="qualityValue">50</span>%</label>
+                <input type="range" id="qualitySlider" min="10" max="90" value="50">
+            </div>
+            <button id="compressBtn">Compress Image</button>
+        </div>
+        
+        <div class="comparison-container">
+            <div class="preview-card">
+                <h3>Uncompressed</h3>
+                <p id="fileinfo">No Image Selected Yet.</p>
+                <img id="preview" style="display: none;" alt="Original preview">
+            </div>
+
+            <div class="preview-card">
+                <h3>Compressed</h3>
+                <p id="compressedInfo">Waiting to compress...</p>
+                <img id="compressedPreview" style="display: none;" alt="Compressed preview">
+                <a id="downloadBtn" style="display: none;">Download Image</a>
+            </div>
+        </div>
     </main>
+
     <script src="script.js"></script>
 </body>
 </html>
