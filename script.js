@@ -18,9 +18,14 @@ const divider = document.getElementById('divider');
 imageinput.addEventListener('change', function () {
     const file = imageinput.files[0];
     if (file) {
-        fileinfo.innerText = 'Selected:' + file.name + ' (' + Math.round(file.size/ 1024) + "KB)";
+        fileinfo.innerText = 'Selected: ' + file.name + ' (' + Math.round(file.size/ 1024) + "KB)";
         preview.src = URL.createObjectURL(file);
         preview.style.display = "block";
+
+        compressedPreview.src = '';
+        compressedPreview.style.display = "none";
+        compressedInfo.innerText = "waiting to compress...";
+        downloadBtn.style.display = 'none';
     }
 });
 
@@ -39,6 +44,8 @@ compressBtn.addEventListener('click', function () {
 
     canvas.width = preview.naturalWidth;
     canvas.height = preview.naturalHeight
+    ctx.fillStyle = '#FFFFFF';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(preview, 0, 0);
 
     const quality = qualitySlider.value / 100;
@@ -49,7 +56,7 @@ compressBtn.addEventListener('click', function () {
         compressedPreview.style.display = 'block';
 
         const newSizeKB = Math.round(blob.size / 1024);
-        compressedInfo.innerText = "compressed Size" + newSizeKB + ' Kb (' + qualitySlider.value + "% Quality)";
+        compressedInfo.innerText = "compressed Size: " + newSizeKB + ' Kb (' + qualitySlider.value + "% Quality)";
         
         downloadBtn.href = compressedUrl;
         downloadBtn.download = 'compressed_' + imageinput.files[0].name;
