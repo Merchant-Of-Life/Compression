@@ -1,6 +1,6 @@
 # IMAGE COMPRESSOR!!!
 
-just drop an image in, pick your quality slider, and hit compress. there's also a split-view slider so you can compare the before-and-after quality before downloading!
+just drop an image in, pick your quality slider, and hit compress. there's also a split-view slider so you can compare the before-and-after quality before downloading!. And Nothing is being uploaded to the Cloud! The Comppression is done On YOUR device!
 
 here are some screenshots of the project!
 
