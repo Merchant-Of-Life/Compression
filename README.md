@@ -1,4 +1,4 @@
-##IMAGE COMPRESSOR!!!##
+#IMAGE COMPRESSOR!!!
 
 just drop an image in, pick your quality slider, and hit compress. there's also a split-view slider so you can compare the before-and-after quality before downloading!
 
